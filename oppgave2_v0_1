@@ -1,0 +1,127 @@
+import random
+print(" ==== Blackjack ==== \n")
+
+#suits inside of deck
+deck = {
+    "Spades": {"Ace": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9, "10": 10, "Jack": 10, "Queen": 10, "King": 10},
+    "Diamonds": {"Ace": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9, "10": 10, "Jack": 10, "Queen": 10, "King": 10},
+    "Hearts": {"Ace": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9, "10": 10, "Jack": 10, "Queen": 10, "King": 10},
+    "Clubs": {"Ace": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9, "10": 10, "Jack": 10, "Queen": 10, "King": 10}
+}
+
+players_hand = {}
+players_chips = 10
+dealers_hand = {}
+
+print("Welcome to Blackjack!\n")
+
+#while_players_chips != 0:
+def start():
+
+    inspirational_message = ["you got this!", "Go get 'em!", "never give up!", "ready, set, go!"]
+    counter = 0
+    loop_counter = 1
+    players_bet = int(input(f"You currently have {players_chips} chips,\n"
+                            f"How many chips do you want to bet?: "))
+    if players_bet > players_chips:
+        print("You don't have that many chips!\n"
+              "please, choose a lower amount within your chip range!\n")
+        start()
+    else:
+        print(f"{random.choice(list(inspirational_message))} get ready for round {loop_counter}:")
+        print("\nDealing ... \n")
+
+        for suits, cards in deck.items():
+            if counter < 2:
+
+                drawn_suit = random.choice(list(deck))
+                drawn_value = random.choice(list(deck[suits]))
+                players_hand[drawn_suit] = {drawn_value}
+                del deck[drawn_suit][drawn_value]
+
+                counter += 1
+            else: break
+
+        print(players_hand)
+        print(deck)
+
+        for suits, cards in deck.items():
+            if counter < 4:
+
+                drawn_suit = random.choice(list(deck))
+                drawn_value = random.choice(list(deck[suits]))
+                dealers_hand[drawn_suit] = {drawn_value}
+                del deck[drawn_suit][drawn_value]
+
+                counter += 1
+            else: break
+        print(dealers_hand)
+        print(deck)
+    loop_counter += 1
+    return f"players hands! {players_hand} \ndealers hands! {dealers_hand}"
+
+    #return players_hand, dealers_hand
+        #print(f"players hands! {players_hand}")
+        #print(f"dealers hands! {dealers_hand}")
+
+        #print(deck)
+       # deal()
+
+def deal():
+
+    counter = 0
+
+    print("Shuffling ... \n")
+    for suits, cards in deck.items():
+        print(f"there are {suits} with {len(cards)} cards left")
+
+    #for suits, cards in players_hand.items():
+        #players_score = players_hand[cards]
+        #print(f"Your Hand is: {suits}\n with a total score of: {cards}")
+
+    for suits, cards in dealers_hand.items():
+        if counter < 1:
+
+            print(f"Dealers revealed card is: {dealers_hand[suits]}")
+            counter += 1
+
+    print("\nDealing ... \n")
+
+    #if
+    for suits, cards in deck.items():
+        drawn_suit = random.choice(list(deck))
+        drawn_value = random.choice(list(deck[suits]))
+        players_hand[drawn_suit] = {drawn_value}
+        del deck[drawn_suit][drawn_value]
+
+
+    for suits, cards in deck.items():
+        drawn_suit = random.choice(list(deck))
+        drawn_value = random.choice(list(deck[suits]))
+        dealers_hand[drawn_suit] = {drawn_value}
+        del deck[drawn_suit][drawn_value]
+
+
+#drawn_suit_in_deck =  in deck.items()
+        #print(f"this is your suit {drawn_suit} with card {drawn_card}")
+
+
+
+#print(deal())
+print(start())
+        #    if cards[value] == 1:
+    #        if players_hand_score <= 10:
+            #
+    #for drawn_card in deck.items():
+     #   if drawn_card =
+
+       # return drawn_card
+#print(deck["Spades"]["A"])
+
+#for suits, values in deck.items():
+ #   print(f"there are {suits} with {values}")
+
+'''
+    for suits, cards in players_hand.items():
+        print(f"{players_hand[suits]} of {players_hand[cards]}")
+'''
